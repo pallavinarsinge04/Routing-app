@@ -1,28 +1,29 @@
 import {createRoot} from "react-dom/client";
+
+import { createBrowserRouter ,RouterProvider } from "react-router-dom";
+
+
 import Home from "./home";
 import About from "./about";
 import Contact from "./contact";
 
 const root = createRoot (document.getElementById("root"));
 
-function App() {
-    const path = window.location.pathname;
-  
-    switch (path) {
-      case "/":
-        return <Home />;
-      case "/About":
-        return <About />;
-      case "/Contact":
-        return <Contact />;
-      default:
-        return <h1>Page Not Found</h1>;
-    }
-  }
+const router = createBrowserRouter([
+  {
+    path:'/',
+    element:<Home/>,
+  },
 
-  root.render(
-    <>
-      {" "}
-      <App />{" "}
-    </>
-  );
+  {
+    path:'/about',
+    element:<About/>,
+  },
+
+  {
+    path:'/contact',
+    element:<Contact/>,
+  }
+])
+
+root.render(<RouterProvider router={router}/>)
