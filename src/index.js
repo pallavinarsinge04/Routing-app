@@ -16,7 +16,7 @@ function App() {
       case "/Contact":
         return <Contact />;
       default:
-        return <h1>404 Page Not Found</h1>;
+        return <h1>Page Not Found</h1>;
     }
   }
 
